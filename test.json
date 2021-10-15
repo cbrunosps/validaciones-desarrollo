@@ -1,0 +1,90 @@
+{
+  "Comment": "Test",
+  "StartAt": "GetFile",
+  "States": {
+    "GetFile": {
+      "Type": "Task",
+      "Resource": "${ResourceTest}",
+      "Next": "Validations",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.error",
+          "Next": "Not Succesfull"
+        }
+      ]
+    },
+    "Validations": {
+      "Type": "Parallel",
+      "Next": "Validated?",
+      "OutputPath": "$",
+      "Branches": [
+        {
+          "StartAt": "ValidateFile test_file",
+          "States": {
+            "ValidateFile test_file": {
+              "Type": "Task",
+              "Resource": "${ValidateFileArn}",
+              "End": true
+            }
+          }
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.error",
+          "Next": "Not Succesfull"
+        }
+      ]
+    },
+    "Validated?": {
+      "Type": "Choice",
+      "OutputPath": "$[0]",
+      "Choices": [
+        {
+          "Not": {
+            "Variable": "$[0].status",
+            "BooleanEquals": false
+          },
+          "Next": "Process"
+        }
+      ],
+      "Default": "Not Succesfull"
+    },
+    "Process": {
+      "Type": "Parallel",
+      "End": true,
+      "Branches": [
+        {
+          "StartAt": "Process test_process",
+          "States": {
+            "Process test_process": {
+              "Type": "Task",
+              "Resource": "${testprocessFileArn}",
+              "End": true
+            }
+          }
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.error",
+          "Next": "Not Succesfull"
+        }
+      ]
+    },
+    "Not Succesfull": {
+      "Type": "Task",
+      "Resource": "${NotSuccesfullFunctionArn}",
+      "End": true
+    }
+  }
+}
