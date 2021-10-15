@@ -60,35 +60,14 @@ commitizen:
     - type: autocomplete
       name: proyecto
       choices: [
-        'sia',
-        'sia-afore-ejemplo',
-        'sia-afore-flujo-caja',
-        'sia-afore-intcash',
-        'sia-afore-intcash-santander',
-        'sia-afore-md',
-        'sia-afore-mo',
-        'sia-aims-y-excedentes',
-        'sia-fondos-crd',
-        'sia-fondos-flujo-caja',
-        'sia-fondos-mandatos',
-        'sia-utileria-apigateway',
-        'sia-utileria-catalogos',
-        'sia-utileria-cloudwatch-schedule',
-        'sia-utileria-envio-correos',
-        'sia-utileria-estadisticas-interfaces',
-        'sia-utileria-limpieza-buckets',
-        'sia-utileria-monitoreo-procesos-usuarios',
-        'sia-utileria-sincronizacion-archivos',
-        'sia-utileria-tipo-cambio-historico',
-        "sia-afore-eaims",
-        "sia-afore-pos-benchmark",
-        "sia-afore-sec-custom-mtm",
-        "sia-afore-weights-benchmark",
-        "sia-utileria-notificaciones-teams",
-        "sia-utileria-contactos-envio-notificaciones",
+        'fesa',
+        'fesa-consulta-disponibilidad',
+        'fesa-esquema-distribucion',
+        'fesa-seleccion-medicamentos-farmacias',
+        'fesa-seleccion-pivote',
       ]
 
-      message: "Nombre de proyecto (ejemplo: sia-afore-flujo-caja): "
+      message: "Nombre de proyecto (ejemplo: fesa-consulta-disponibilidad): "
 
     #Id de jira relacionado con el commit
     - type: text

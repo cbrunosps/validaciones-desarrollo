@@ -1,42 +1,39 @@
+"""Show Canary Deployment message."""
 import json
- 
+
 # import requests
 
 
 def lambda_handler(event, context):
-    """Sample pure Lambda function
+    """Muestra el mensaje de un despliegue canario does.
 
-    Parameters
-    ----------
-    event: dict, required
-        API Gateway Lambda Proxy Input Format
+    `PEP 484`_ type annotations are supported. If attribute, parameter, and
+    return types are annotated according to `PEP 484`_, they do not need to be
+    included in the docstring:
 
-        Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
+    Args:
+        event (dict): API Gateway Lambda Proxy Input Format
+        context (obj): Lambda Context runtime methods and attributes
 
-    context: object, required
-        Lambda Context runtime methods and attributes
+    Returns:
+        dict: API Gateway Lambda Proxy Output Format
 
-        Context doc: https://docs.aws.amazon.com/lambda/latest/dg/python-context-object.html
+    .. _PEP 484:
+        https://www.python.org/dev/peps/pep-0484/
 
-    Returns
-    ------
-    API Gateway Lambda Proxy Output Format: dict
-
-        Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
     """
-
     # try:
     #     ip = requests.get("http://checkip.amazonaws.com/")
     # except requests.RequestException as e:
     #     # Send some context about this error to Lambda Logs
     #     print(e)
-
     #     raise e
-
     return {
         "statusCode": 200,
-        "body": json.dumps({
-            "message": "Canary Deployment",
-            # "location": ip.text.replace("\n", "")
-        }),
+        "body": json.dumps(
+            {
+                "message": "Canary Deployment",
+                # "location": ip.text.replace("\n", "")
+            }
+        ),
     }
