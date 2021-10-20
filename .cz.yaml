@@ -70,7 +70,8 @@ commitizen:
         'robot-generacion-de-horarios',
       ]
 
-      message: "Nombre de proyecto (ejemplo: robot-consulta-disponibilidad): "
+
+      message: "Nombre de proyecto (ejemplo: robot-consulta-de-disponibilidad): "
 
     #Id de jira relacionado con el commit
     - type: text
