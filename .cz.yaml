@@ -33,9 +33,9 @@ commitizen:
       name: tipo_cambio
       choices:
       - value: build
-        name: 'build: cambios que afectan la construcción del sistema o dependencias externas (ejemplos: npm, mvn, etc. )'
+        name: 'build: cambios que afectan la construcción del sistema o dependencias externas (ejemplos: npm, mvn, etc.)'
       - value: ci
-        name: 'ci: cambios a los scripts o tuberias de configuración de CI (ejemplos: Jenkins, Code, Github actions, etc'
+        name: 'ci: cambios a los scripts o Tuberías de configuración de CI (ejemplos: Jenkins, Code, Github actions, etc)'
       - value: docs
         name: 'docs: se agrega o modifica documentación (ejemplo: README.md)'
       - value: feat
@@ -45,7 +45,7 @@ commitizen:
       - value: perf
         name: 'perf: cambio en el código que mejora el rendimiento'
       - value: refactor
-        name: 'refactor: cambio en el código que ni corrije error ni agrega nueva funcionalidad'
+        name: 'refactor: cambio en el código que ni corrige error ni agrega nueva funcionalidad'
       - value: test
         name: 'test: agrega pruebas faltantes o corrige pruebas existentes'
 
@@ -60,14 +60,17 @@ commitizen:
     - type: autocomplete
       name: proyecto
       choices: [
-        'fesa',
-        'fesa-consulta-disponibilidad',
-        'fesa-esquema-distribucion',
-        'fesa-seleccion-medicamentos-farmacias',
-        'fesa-seleccion-pivote',
+        'robot',
+        'robot-nuevo-pedido',
+        'robot-seleccion-sucursal-pivote',
+        'robot-esquema-de-distribucion',
+        'robot-sincronizacion-de-inventarios',
+        'robot-consulta-de-disponibilidad',
+        'robot-gestor-de-complementos',
+        'robot-generacion-de-horarios',
       ]
 
-      message: "Nombre de proyecto (ejemplo: fesa-consulta-disponibilidad): "
+      message: "Nombre de proyecto (ejemplo: robot-consulta-disponibilidad): "
 
     #Id de jira relacionado con el commit
     - type: text
